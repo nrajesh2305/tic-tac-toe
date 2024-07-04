@@ -32,5 +32,17 @@ body
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(3, 1fr);
     grid-area: 1 / 2 / 4 / 5;
+    grid-template-areas: "box box box"
+                         "box box box"
+                         "box box box";
     background-color: tan;
+    border: 2px solid black;
+}
+
+.board div
+{
+    grid-area: box;
+    grid-row: span 1;
+    grid-column: span 1;
+    border: 2px solid black;
 }
