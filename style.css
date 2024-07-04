@@ -1,0 +1,36 @@
+:root 
+{
+    --system-ui: system-ui, "Roboto", sans-serif, Helvetica, Arial, sans-serif, "Segoe UI", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body
+{
+    font-family: var(--system-ui);
+    margin: 0;
+    padding: 0;
+}
+
+.global-container
+{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 100vw;
+    height: 100vh;
+}
+
+.settings-sidebar
+{
+    grid-area: 1 / 1 / 4 / 1;
+    background-color: #7c3f00;
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.board
+{
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-area: 1 / 2 / 4 / 5;
+    background-color: tan;
+}
