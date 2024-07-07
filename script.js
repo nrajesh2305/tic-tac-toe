@@ -33,25 +33,31 @@ function checkForWin()
     }
 }
 
+function isOccupied(index)
+{
+    return areas[index].textContent != "";
+}
+
 for(let i = 0; i < areas.length; i++)
 {
     areas[i].addEventListener("click", () =>
     {
-        if(currentPlayer === 1)
+        if(!isOccupied(i))
         {
-            areas[i].style.backgroundColor = playerOneMarker.style.color;
-            areas[i].textContent = playerOneMarker.textContent;
-            console.log(areas[i].textContent);
-            currentPlayer = 2;
+            if(currentPlayer === 1)
+            {
+                areas[i].style.backgroundColor = playerOneMarker.style.color;
+                areas[i].textContent = playerOneMarker.textContent;
+                currentPlayer = 2;
+            }
+            else
+            {
+                areas[i].style.backgroundColor = playerTwoMarker.style.color;
+                areas[i].textContent = playerTwoMarker.textContent;
+                currentPlayer = 1;
+            }
+            checkForWin();    
         }
-        else
-        {
-            areas[i].style.backgroundColor = playerTwoMarker.style.color;
-            areas[i].textContent = playerTwoMarker.textContent;
-            console.log(areas[i].textContent);
-            currentPlayer = 1;
-        }
-        checkForWin();
     });
 }
 
