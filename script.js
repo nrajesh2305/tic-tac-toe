@@ -24,6 +24,8 @@ function clearBoard()
         areas[i].textContent = "";
         areas[i].style.backgroundColor = "tan";
     }
+    isWinDetected = false;
+    currentPlayer = 1;
 }
 
 function checkForWin()
@@ -35,12 +37,14 @@ function checkForWin()
             playerOneScore++;
             playerOneScore_label.textContent = playerOneScore;
             isWinDetected = true;
+            clearBoard();
         }
         else if(areas[0].textContent === "O")
         {
             playerTwoScore++;
             playerTwoScore_label.textContent = playerTwoScore;
             isWinDetected = true;
+            clearBoard();
         }
     }
     if(areas[3].textContent === areas[4].textContent && areas[4].textContent === areas[5].textContent)
@@ -50,12 +54,14 @@ function checkForWin()
             playerOneScore++;
             playerOneScore_label.textContent = playerOneScore;
             isWinDetected = true;
+            clearBoard();
         }
         else if(areas[3].textContent === "O")
         {
             playerTwoScore++;
             playerTwoScore_label.textContent = playerTwoScore;
             isWinDetected = true;
+            clearBoard();
         }
     }
     if(areas[6].textContent === areas[7].textContent && areas[7].textContent === areas[8].textContent)
@@ -65,12 +71,14 @@ function checkForWin()
             playerOneScore++;
             playerOneScore_label.textContent = playerOneScore;
             isWinDetected = true;
+            clearBoard();
         }
         else if(areas[6].textContent === "O")
         {
             playerTwoScore++;
             playerTwoScore_label.textContent = playerTwoScore;
             isWinDetected = true;
+            clearBoard();
         }
     }
     if(areas[2].textContent === areas[4].textContent && areas[4].textContent === areas[6].textContent)
@@ -80,12 +88,14 @@ function checkForWin()
             playerOneScore++;
             playerOneScore_label.textContent = playerOneScore;
             isWinDetected = true;
+            clearBoard();
         }
         else if(areas[2].textContent === "O")
         {
             playerTwoScore++;
             playerTwoScore_label.textContent = playerTwoScore;
             isWinDetected = true;
+            clearBoard();
         }
     }
     if(areas[0].textContent === areas[3].textContent && areas[3].textContent === areas[6].textContent)
@@ -95,12 +105,14 @@ function checkForWin()
             playerOneScore++;
             playerOneScore_label.textContent = playerOneScore;
             isWinDetected = true;
+            clearBoard();
         }
         else if(areas[0].textContent === "O")
         {
             playerTwoScore++;
             playerTwoScore_label.textContent = playerTwoScore;
             isWinDetected = true;
+            clearBoard();
         }
     }
     if(areas[1].textContent === areas[4].textContent && areas[4].textContent === areas[7].textContent)
@@ -110,12 +122,14 @@ function checkForWin()
             playerOneScore++;
             playerOneScore_label.textContent = playerOneScore;
             isWinDetected = true;
+            clearBoard();
         }
         else if(areas[1].textContent === "O")
         {
             playerTwoScore++;
             playerTwoScore_label.textContent = playerTwoScore;
             isWinDetected = true;
+            clearBoard();
         }
     }
     if(areas[2].textContent === areas[5].textContent && areas[5].textContent === areas[8].textContent)
@@ -125,12 +139,14 @@ function checkForWin()
             playerOneScore++;
             playerOneScore_label.textContent = playerOneScore;
             isWinDetected = true;
+            clearBoard();
         }
         else if(areas[2].textContent === "O")
         {
             playerTwoScore++;
             playerTwoScore_label.textContent = playerTwoScore;
             isWinDetected = true;
+            clearBoard();
         }
     }
     if(areas[0].textContent === areas[4].textContent && areas[4].textContent === areas[8].textContent)
@@ -140,12 +156,14 @@ function checkForWin()
             playerOneScore++;
             playerOneScore_label.textContent = playerOneScore;
             isWinDetected = true;
+            clearBoard();
         }
         else if(areas[0].textContent === "O")
         {
             playerTwoScore++;
             playerTwoScore_label.textContent = playerTwoScore;
             isWinDetected = true;
+            clearBoard();
         }
     }
 }
@@ -190,6 +208,7 @@ reset_game.addEventListener("click", () =>
     playerOneScore_label.style.color = "black";
     playerTwoScore_label.style.color = "black";
     currentPlayer = 1;
+    isWinDetected = false;
 });
 
 reset_all.addEventListener("click", () =>
@@ -202,4 +221,5 @@ reset_all.addEventListener("click", () =>
     playerTwoScore_label.textContent = playerTwoScore;
     playerOneScore_label.style.color = "black";
     playerTwoScore_label.style.color = "black";
+    isWinDetected = false;
 });
