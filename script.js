@@ -17,19 +17,120 @@ const areas = document.querySelectorAll(".board div");
 const reset_all = document.querySelector("button.reset-all");
 const reset_game = document.querySelector("button.reset-game");
 
+function clearBoard()
+{
+    for(let i = 0; i < areas.length; i++)
+    {
+        areas[i].textContent = "";
+        areas[i].style.backgroundColor = "tan";
+    }
+}
+
 function checkForWin()
 {
-    if(areas[0].textContent === "O" && areas[0].textContent === areas[1].textContent && areas[1].textContent === areas[2].textContent)
+    if(areas[0].textContent === areas[1].textContent && areas[1].textContent === areas[2].textContent)
     {
-        playerTwoScore++;
-        playerTwoScore_label.textContent = playerTwoScore;
-        console.log("Printing it out now.");
+        if(areas[0].textContent === "X")
+        {
+            playerOneScore++;
+            playerOneScore_label.textContent = playerOneScore;
+        }
+        else if(areas[0].textContent === "O")
+        {
+            playerTwoScore++;
+            playerTwoScore_label.textContent = playerTwoScore;
+        }
     }
-    if(areas[3].textContent === "O" && areas[3].textContent === areas[4].textContent && areas[4].textContent === areas[5].textContent)
+    if(areas[3].textContent === areas[4].textContent && areas[4].textContent === areas[5].textContent)
     {
-        playerTwoScore++;
-        playerTwoScore_label.textContent = playerTwoScore;
-        console.log("Printing it out now.");
+        if(areas[3].textContent === "X")
+        {
+            playerOneScore++;
+            playerOneScore_label.textContent = playerOneScore;
+        }
+        else if(areas[3].textContent === "O")
+        {
+            playerTwoScore++;
+            playerTwoScore_label.textContent = playerTwoScore;
+        }
+    }
+    if(areas[6].textContent === areas[7].textContent && areas[7].textContent === areas[8].textContent)
+    {
+        if(areas[6].textContent === "X")
+        {
+            playerOneScore++;
+            playerOneScore_label.textContent = playerOneScore;
+        }
+        else if(areas[6].textContent === "O")
+        {
+            playerTwoScore++;
+            playerTwoScore_label.textContent = playerTwoScore;
+        }
+    }
+    if(areas[2].textContent === areas[4].textContent && areas[4].textContent === areas[6].textContent)
+    {
+        if(areas[2].textContent === "X")
+        {
+            playerOneScore++;
+            playerOneScore_label.textContent = playerOneScore;
+        }
+        else if(areas[2].textContent === "O")
+        {
+            playerTwoScore++;
+            playerTwoScore_label.textContent = playerTwoScore;
+        }
+    }
+    if(areas[0].textContent === areas[3].textContent && areas[3].textContent === areas[6].textContent)
+    {
+        if(areas[0].textContent === "X")
+        {
+            playerOneScore++;
+            playerOneScore_label.textContent = playerOneScore;
+        }
+        else if(areas[0].textContent === "O")
+        {
+            playerTwoScore++;
+            playerTwoScore_label.textContent = playerTwoScore;
+        }
+    }
+    if(areas[1].textContent === areas[4].textContent && areas[4].textContent === areas[7].textContent)
+    {
+        if(areas[1].textContent === "X")
+        {
+            playerOneScore++;
+            playerOneScore_label.textContent = playerOneScore;
+        }
+        else if(areas[1].textContent === "O")
+        {
+            playerTwoScore++;
+            playerTwoScore_label.textContent = playerTwoScore;
+        }
+    }
+    if(areas[2].textContent === areas[5].textContent && areas[5].textContent === areas[8].textContent)
+    {
+        if(areas[2].textContent === "X")
+        {
+            playerOneScore++;
+            playerOneScore_label.textContent = playerOneScore;
+        }
+        else if(areas[2].textContent === "O")
+        {
+            playerTwoScore++;
+            playerTwoScore_label.textContent = playerTwoScore;
+        }
+    }
+    if(areas[0].textContent === areas[4].textContent && areas[4].textContent === areas[8].textContent)
+    {
+        if(areas[0].textContent === "X")
+        {
+            playerOneScore++;
+            playerOneScore_label.textContent = playerOneScore;
+        }
+        else if(areas[0].textContent === "O")
+        {
+            playerTwoScore++;
+            playerTwoScore_label.textContent = playerTwoScore;
+        }
     }
 }
 
@@ -64,25 +165,22 @@ for(let i = 0; i < areas.length; i++)
 // Only difference with reset all button is that the scores for both players will be reset to 0.
 reset_game.addEventListener("click", () =>
 {
-    for(let i = 0; i < areas.length; i++)
-    {
-        areas[i].textContent = "";
-        areas[i].style.backgroundColor = "tan";
-    }
+    clearBoard();
+    playerOneScore_label.textContent = playerOneScore;
+    playerTwoScore_label.textContent = playerTwoScore;
+    playerOneScore_label.style.color = "black";
+    playerTwoScore_label.style.color = "black";
     currentPlayer = 1;
 });
 
 reset_all.addEventListener("click", () =>
 {
-
-    for(let i = 0; i < areas.length; i++)
-    {
-        areas[i].textContent = "";
-        areas[i].style.backgroundColor = "tan";
-    }
+    clearBoard();
     currentPlayer = 1;
     playerOneScore = 0;
     playerTwoScore = 0;
     playerOneScore_label.textContent = playerOneScore;
     playerTwoScore_label.textContent = playerTwoScore;
+    playerOneScore_label.style.color = "black";
+    playerTwoScore_label.style.color = "black";
 });
