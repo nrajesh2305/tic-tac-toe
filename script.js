@@ -28,6 +28,19 @@ function clearBoard()
     currentPlayer = 1;
 }
 
+function isBoardFull()
+{
+    let numFull = 0;
+    for(let i = 0; i < areas.length; i++)
+    {
+        if(areas[i].textContent != "")
+        {
+            numFull++;    
+        }   
+    }
+    return numFull === 9;
+}
+
 function checkForWin()
 {
     if(areas[0].textContent === areas[1].textContent && areas[1].textContent === areas[2].textContent)
@@ -195,6 +208,10 @@ for(let i = 0; i < areas.length; i++)
                 }
                 checkForWin();    
             }
+        }
+        if(isBoardFull())
+        {
+            clearBoard();   
         }
     });
 }
