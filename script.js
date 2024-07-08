@@ -12,7 +12,7 @@ const playerOneScore_label = document.querySelector(".player_one_score");
 const playerTwoScore_label = document.querySelector(".player_two_score");
 let currentPlayer = 1;
 let playerOneScore = 0, playerTwoScore = 0;
-
+let isWinDetected = false;
 const areas = document.querySelectorAll(".board div");
 const reset_all = document.querySelector("button.reset-all");
 const reset_game = document.querySelector("button.reset-game");
@@ -34,11 +34,13 @@ function checkForWin()
         {
             playerOneScore++;
             playerOneScore_label.textContent = playerOneScore;
+            isWinDetected = true;
         }
         else if(areas[0].textContent === "O")
         {
             playerTwoScore++;
             playerTwoScore_label.textContent = playerTwoScore;
+            isWinDetected = true;
         }
     }
     if(areas[3].textContent === areas[4].textContent && areas[4].textContent === areas[5].textContent)
@@ -47,11 +49,13 @@ function checkForWin()
         {
             playerOneScore++;
             playerOneScore_label.textContent = playerOneScore;
+            isWinDetected = true;
         }
         else if(areas[3].textContent === "O")
         {
             playerTwoScore++;
             playerTwoScore_label.textContent = playerTwoScore;
+            isWinDetected = true;
         }
     }
     if(areas[6].textContent === areas[7].textContent && areas[7].textContent === areas[8].textContent)
@@ -60,11 +64,13 @@ function checkForWin()
         {
             playerOneScore++;
             playerOneScore_label.textContent = playerOneScore;
+            isWinDetected = true;
         }
         else if(areas[6].textContent === "O")
         {
             playerTwoScore++;
             playerTwoScore_label.textContent = playerTwoScore;
+            isWinDetected = true;
         }
     }
     if(areas[2].textContent === areas[4].textContent && areas[4].textContent === areas[6].textContent)
@@ -73,11 +79,13 @@ function checkForWin()
         {
             playerOneScore++;
             playerOneScore_label.textContent = playerOneScore;
+            isWinDetected = true;
         }
         else if(areas[2].textContent === "O")
         {
             playerTwoScore++;
             playerTwoScore_label.textContent = playerTwoScore;
+            isWinDetected = true;
         }
     }
     if(areas[0].textContent === areas[3].textContent && areas[3].textContent === areas[6].textContent)
@@ -86,11 +94,13 @@ function checkForWin()
         {
             playerOneScore++;
             playerOneScore_label.textContent = playerOneScore;
+            isWinDetected = true;
         }
         else if(areas[0].textContent === "O")
         {
             playerTwoScore++;
             playerTwoScore_label.textContent = playerTwoScore;
+            isWinDetected = true;
         }
     }
     if(areas[1].textContent === areas[4].textContent && areas[4].textContent === areas[7].textContent)
@@ -99,11 +109,13 @@ function checkForWin()
         {
             playerOneScore++;
             playerOneScore_label.textContent = playerOneScore;
+            isWinDetected = true;
         }
         else if(areas[1].textContent === "O")
         {
             playerTwoScore++;
             playerTwoScore_label.textContent = playerTwoScore;
+            isWinDetected = true;
         }
     }
     if(areas[2].textContent === areas[5].textContent && areas[5].textContent === areas[8].textContent)
@@ -112,11 +124,13 @@ function checkForWin()
         {
             playerOneScore++;
             playerOneScore_label.textContent = playerOneScore;
+            isWinDetected = true;
         }
         else if(areas[2].textContent === "O")
         {
             playerTwoScore++;
             playerTwoScore_label.textContent = playerTwoScore;
+            isWinDetected = true;
         }
     }
     if(areas[0].textContent === areas[4].textContent && areas[4].textContent === areas[8].textContent)
@@ -125,11 +139,13 @@ function checkForWin()
         {
             playerOneScore++;
             playerOneScore_label.textContent = playerOneScore;
+            isWinDetected = true;
         }
         else if(areas[0].textContent === "O")
         {
             playerTwoScore++;
             playerTwoScore_label.textContent = playerTwoScore;
+            isWinDetected = true;
         }
     }
 }
@@ -143,21 +159,24 @@ for(let i = 0; i < areas.length; i++)
 {
     areas[i].addEventListener("click", () =>
     {
-        if(!isOccupied(i))
+        if(!isWinDetected)
         {
-            if(currentPlayer === 1)
+            if(!isOccupied(i))
             {
-                areas[i].style.backgroundColor = playerOneMarker.style.color;
-                areas[i].textContent = playerOneMarker.textContent;
-                currentPlayer = 2;
+                if(currentPlayer === 1)
+                {
+                    areas[i].style.backgroundColor = playerOneMarker.style.color;
+                    areas[i].textContent = playerOneMarker.textContent;
+                    currentPlayer = 2;
+                }
+                else
+                {
+                    areas[i].style.backgroundColor = playerTwoMarker.style.color;
+                    areas[i].textContent = playerTwoMarker.textContent;
+                    currentPlayer = 1;
+                }
+                checkForWin();    
             }
-            else
-            {
-                areas[i].style.backgroundColor = playerTwoMarker.style.color;
-                areas[i].textContent = playerTwoMarker.textContent;
-                currentPlayer = 1;
-            }
-            checkForWin();    
         }
     });
 }
