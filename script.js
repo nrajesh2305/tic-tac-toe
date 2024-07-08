@@ -255,7 +255,7 @@ for(let i = 0; i < areas.length; i++)
                     areas[i].textContent = playerTwoMarker.textContent;
                     currentPlayer = 1;
                 }
-                checkForWin();    
+                checkForWin();
             }
         }
         if(isBoardFull())
